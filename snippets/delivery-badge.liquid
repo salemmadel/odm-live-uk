@@ -1,0 +1,98 @@
+{% comment %}
+  Renders a delivery badge with animated indicator
+
+  Accepts:
+  - block: {Object} Block object with settings
+  - badge_text: {String} Optional. Override badge text (default: uses block.settings.badge_text)
+  - enable_badge: {Boolean} Optional. Override enable state (default: uses block.settings.enable_badge)
+  - font_size_mobile: {Number} Optional. Mobile font size in px (default: uses block.settings.font_size_mobile)
+  - font_size_desktop: {Number} Optional. Desktop font size in px (default: uses block.settings.font_size_desktop)
+  - padding_top: {Number} Optional. Top padding in px (default: uses block.settings.padding_top)
+  - padding_bottom: {Number} Optional. Bottom padding in px (default: uses block.settings.padding_bottom)
+  - padding_left: {Number} Optional. Left padding in px (default: uses block.settings.padding_left)
+  - padding_right: {Number} Optional. Right padding in px (default: uses block.settings.padding_right)
+
+  Usage:
+  {% render 'delivery-badge', block: block %}
+  {% render 'delivery-badge', badge_text: 'Delivery 1-3', enable_badge: true %}
+{% endcomment %}
+
+{%- liquid
+  if enable_badge != nil
+    assign show_badge = enable_badge
+  elsif block.settings.enable_badge != nil
+    assign show_badge = block.settings.enable_badge
+  else
+    assign show_badge = true
+  endif
+
+  if badge_text != blank
+    assign text = badge_text
+  elsif block.settings.badge_text != blank
+    assign text = block.settings.badge_text
+  else
+    assign text = 'Delivery 1-2'
+  endif
+
+  if font_size_mobile != nil
+    assign fs_mobile = font_size_mobile
+  elsif block.settings.font_size_mobile != nil
+    assign fs_mobile = block.settings.font_size_mobile
+  else
+    assign fs_mobile = 14
+  endif
+
+  if font_size_desktop != nil
+    assign fs_desktop = font_size_desktop
+  elsif block.settings.font_size_desktop != nil
+    assign fs_desktop = block.settings.font_size_desktop
+  else
+    assign fs_desktop = 16
+  endif
+
+  if padding_top != nil
+    assign pt = padding_top
+  elsif block.settings.padding_top != nil
+    assign pt = block.settings.padding_top
+  else
+    assign pt = 12
+  endif
+
+  if padding_bottom != nil
+    assign pb = padding_bottom
+  elsif block.settings.padding_bottom != nil
+    assign pb = block.settings.padding_bottom
+  else
+    assign pb = 12
+  endif
+
+  if padding_left != nil
+    assign pl = padding_left
+  elsif block.settings.padding_left != nil
+    assign pl = block.settings.padding_left
+  else
+    assign pl = 0
+  endif
+
+  if padding_right != nil
+    assign pr = padding_right
+  elsif block.settings.padding_right != nil
+    assign pr = block.settings.padding_right
+  else
+    assign pr = 0
+  endif
+-%}
+
+{%- if show_badge -%}
+  <div class="delivery-badge" {% if block %}{{ block.shopify_attributes }}{% endif %} style="
+    --delivery-badge-padding-top: {{ pt }}px;
+    --delivery-badge-padding-bottom: {{ pb }}px;
+    --delivery-badge-padding-left: {{ pl }}px;
+    --delivery-badge-padding-right: {{ pr }}px;
+    --delivery-badge-font-size-mobile: {{ fs_mobile }}px;
+    --delivery-badge-font-size-desktop: {{ fs_desktop }}px;
+  ">
+    <span class="delivery-badge__indicator"></span>
+    <span class="delivery-badge__text">{{ text }}</span>
+  </div>
+{%- endif -%}
