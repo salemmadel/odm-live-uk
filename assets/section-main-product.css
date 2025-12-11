@@ -157,7 +157,7 @@ product-form .form__select,
 .product-form__input {
   border: none;
   flex: 0 0 100%;
-  margin: 0 0 1.2rem;
+  margin: 0; /* margin-bottom removed - spacing now controlled via theme editor */
   max-width: 37rem;
   min-width: fit-content;
   padding: 0;
@@ -169,7 +169,7 @@ variant-selects {
 }
 
 .product-form__input--dropdown {
-  margin-bottom: 1.6rem;
+  margin-bottom: 0; /* margin-bottom removed - spacing now controlled via theme editor */
 }
 
 .product-form__input .form__label {
