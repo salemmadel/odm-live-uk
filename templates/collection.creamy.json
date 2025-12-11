@@ -1,0 +1,187 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "is_above_the_fold": false,
+        "show_collection_description": false,
+        "show_collection_image": false,
+        "color_scheme": "background-1"
+      }
+    },
+    "5054f308-d475-4457-a6a4-0497d601b01a": {
+      "type": "image-intro-banner",
+      "settings": {
+        "is_above_the_fold": true,
+        "image": "shopify://shop_images/250507_STC_Collection_Header_Desktop_1920x500_EN_001.jpg",
+        "image_2": "shopify://shop_images/250507_STC_Collection_Header_Mobile_1200x900_EN_001.jpg",
+        "image_4_height": 0,
+        "image_3_height": 0,
+        "link": "",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt_image",
+        "adapt_height_first_image": false,
+        "desktop_content_position": "middle-center",
+        "section_animation": "none",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "show_text_below": true,
+        "heading_h1": "",
+        "heading_h2": "",
+        "heading_text": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "a6599172-fb60-4718-9e30-ffa6c3d881d7": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16326941868163__a6599172-fb60-4718-9e30-ffa6c3d881d7-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "O‘Donnell's Cream Selection",
+            "heading_size": "h1"
+          }
+        },
+        "template--16326941868163__a6599172-fb60-4718-9e30-ffa6c3d881d7-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Indulge in a taste of luxury with the O'Donnell Cream Liqueur range. Crafted for those who delight in decadence, these velvety smooth liqueurs are best enjoyed neat over ice. Discover our bestselling cream liqueur, <em>Tough Nut Cream</em>, for the perfect blend of hazelnut, caramel and rich vanilla cream.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--16326941868163__a6599172-fb60-4718-9e30-ffa6c3d881d7-heading-1",
+        "template--16326941868163__a6599172-fb60-4718-9e30-ffa6c3d881d7-text-1"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "is_above_the_fold": true,
+        "products_per_page": 24,
+        "columns_desktop": 4,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "grey_sold_out_products": true,
+        "enable_filtering": true,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 24,
+        "padding_bottom": 0
+      }
+    },
+    "cc61eb0c-ad2f-4f4b-8042-f76163bf19c1": {
+      "type": "front-collections",
+      "blocks": {
+        "collection_Tr4UNk": {
+          "type": "collection",
+          "settings": {
+            "default_collection": false,
+            "collection_title": "Classics",
+            "collection": "classics",
+            "view_all_button_label": "See all"
+          }
+        },
+        "1ae16a14-3aba-476e-9539-75a0650198ee": {
+          "type": "collection",
+          "settings": {
+            "default_collection": false,
+            "collection_title": "Fruity",
+            "collection": "fruity",
+            "view_all_button_label": "See all"
+          }
+        },
+        "collection_eVLpqc": {
+          "type": "collection",
+          "settings": {
+            "default_collection": false,
+            "collection_title": "Mixers",
+            "collection": "mixers",
+            "view_all_button_label": "See all"
+          }
+        },
+        "collection_zLRGhU": {
+          "type": "collection",
+          "settings": {
+            "default_collection": false,
+            "collection_title": "Bestsellers",
+            "collection": "featured",
+            "view_all_button_label": "See all"
+          }
+        },
+        "bc59ad49-ce36-49c1-8779-02a3f8b4f9d3": {
+          "type": "collection",
+          "settings": {
+            "default_collection": false,
+            "collection_title": "All products",
+            "collection": "all",
+            "view_all_button_label": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_Tr4UNk",
+        "1ae16a14-3aba-476e-9539-75a0650198ee",
+        "collection_eVLpqc",
+        "collection_zLRGhU",
+        "bc59ad49-ce36-49c1-8779-02a3f8b4f9d3"
+      ],
+      "settings": {
+        "is_above_the_fold": false,
+        "title": "Discover more tastes",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "grey_sold_out_products": true,
+        "description_style": "body",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "section_animation": "none",
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "5054f308-d475-4457-a6a4-0497d601b01a",
+    "a6599172-fb60-4718-9e30-ffa6c3d881d7",
+    "product-grid",
+    "cc61eb0c-ad2f-4f4b-8042-f76163bf19c1"
+  ]
+}
