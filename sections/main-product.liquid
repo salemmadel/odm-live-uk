@@ -14,6 +14,7 @@
     {{ 'component-inventory.css' | asset_url | stylesheet_tag }}
     {{ 'component-prerelease.css' | asset_url | stylesheet_tag }}
     {{ 'component-card.css' | asset_url | stylesheet_tag }}
+    {{ 'component-delivery-badge.css' | asset_url | stylesheet_tag }}
 
 
   {%- else -%}
@@ -31,6 +32,7 @@
     <link rel="stylesheet" href="{{ 'component-inventory.css' | asset_url }}" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="{{ 'component-prerelease.css' | asset_url }}" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ 'component-delivery-badge.css' | asset_url }}" media="print" onload="this.media='all'">
   {%- endif -%}
 
   {%- assign has_recommended_products = false -%}
@@ -684,7 +686,16 @@ DEAL %
             
           {%- when 'buy_buttons' -%}
             {%- unless product.metafields.custom.hide_atc -%}
-              <div {{ block.shopify_attributes }}>
+              <div {{ block.shopify_attributes }} style="
+                margin-top: {{ block.settings.margin_top }}px;
+                margin-bottom: {{ block.settings.margin_bottom }}px;
+                margin-left: {{ block.settings.margin_left }}px;
+                margin-right: {{ block.settings.margin_right }}px;
+                padding-top: {{ block.settings.padding_top }}px;
+                padding-bottom: {{ block.settings.padding_bottom }}px;
+                padding-left: {{ block.settings.padding_left }}px;
+                padding-right: {{ block.settings.padding_right }}px;
+              ">
                 <product-form class="product-form" id="buy-buttons">
                   <div class="product-form__error-message-wrapper" role="alert" hidden>
                     <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-error" viewBox="0 0 13 13">
@@ -1072,6 +1083,21 @@ DEAL %
               </div>
             </div>
           {%- endunless -%}
+
+          {%- when 'delivery_badge' -%}
+            {%- if block.settings.enable_badge -%}
+              <div class="delivery-badge" {{ block.shopify_attributes }} style="
+                --delivery-badge-padding-top: {{ block.settings.padding_top }}px;
+                --delivery-badge-padding-bottom: {{ block.settings.padding_bottom }}px;
+                --delivery-badge-padding-left: {{ block.settings.padding_left }}px;
+                --delivery-badge-padding-right: {{ block.settings.padding_right }}px;
+                --delivery-badge-font-size-mobile: {{ block.settings.font_size_mobile }}px;
+                --delivery-badge-font-size-desktop: {{ block.settings.font_size_desktop }}px;
+              ">
+                <span class="delivery-badge__indicator"></span>
+                <span class="delivery-badge__text">{{ block.settings.badge_text }}</span>
+              </div>
+            {%- endif -%}
 
           {%- when 'rating' -%}
             {%- if product.metafields.reviews.rating.value != blank -%}
@@ -1622,6 +1648,176 @@ DEAL %
           "type": "url",
           "id": "gang_url",
           "label": "Gang URL"
+        },
+        {
+          "type": "header",
+          "content": "Spacing Settings"
+        },
+        {
+          "type": "range",
+          "id": "margin_top",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "Margin Top",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "margin_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "Margin Bottom",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "margin_left",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "Margin Left",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "margin_right",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "Margin Right",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "Padding Top",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "Padding Bottom",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "padding_left",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "Padding Left",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "padding_right",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "Padding Right",
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "delivery_badge",
+      "name": "Delivery Badge",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "enable_badge",
+          "label": "Enable Delivery Badge",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge Text",
+          "default": "Delivery 1-2"
+        },
+        {
+          "type": "header",
+          "content": "Font Settings"
+        },
+        {
+          "type": "range",
+          "id": "font_size_mobile",
+          "min": 10,
+          "max": 30,
+          "step": 1,
+          "unit": "px",
+          "label": "Font Size (Mobile)",
+          "default": 14
+        },
+        {
+          "type": "range",
+          "id": "font_size_desktop",
+          "min": 10,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "label": "Font Size (Desktop)",
+          "default": 16
+        },
+        {
+          "type": "header",
+          "content": "Padding Settings"
+        },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "Padding Top",
+          "default": 12
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "Padding Bottom",
+          "default": 12
+        },
+        {
+          "type": "range",
+          "id": "padding_left",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "Padding Left",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "padding_right",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "Padding Right",
+          "default": 0
         }
       ]
     },

@@ -273,7 +273,7 @@ variant-radios .disabled_variant:checked + label {
 }
 
 .product-form__submit {
-  margin-bottom: 1rem;
+  /* margin-bottom removed - now controlled via theme editor settings */
 }
 
 .no-js .product-form__submit.button--secondary {
